@@ -1,7 +1,8 @@
-/*
+                                                                                                                                                                                                           /*
  * Micro usado= Arduino nano
  * 
  * Sensor infrarrojo E18-d80nk
+ * Antihorario el tornillo par acortar distancia de senso 
    Pin definiciones:
                     Marron-> positivo
                     Negro ---- señal D5
@@ -181,9 +182,9 @@ void loop()
           }
 
 
-    if ( digitalRead(sensor) == LOW)
+    if ( digitalRead(sensor) != LOW)
           {
-            while (!digitalRead(sensor)){ lcd.setCursor(9,0); lcd.print("SENSOR"); lcd.setCursor(11,1); lcd.print("ON");}
+            while (digitalRead(sensor)){ lcd.setCursor(9,0); lcd.print("SENSOR"); lcd.setCursor(11,1); lcd.print("ON");}
             delay(10);
             lcd.setCursor(9,0); lcd.print("      "); lcd.setCursor(11,1); lcd.print("  ");
           }
